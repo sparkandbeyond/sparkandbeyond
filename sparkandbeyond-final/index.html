@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Spark & Beyond — Uniting communities and providing opportunities close to home. Youth basketball programs in Leander, TX."/>
+<title>Spark & Beyond</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Lora:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  background: linear-gradient(135deg, var(--navy) 0%, #0f2d6e 60%, #1a4fa0 100%);
+  position: relative; overflow: hidden; padding-top: 70px;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(74,140,255,.18) 0%, transparent 65%);
+}
+.hero-grid {
+  position: absolute; inset: 0; opacity: .04;
+  background-image: linear-gradient(rgba(255,255,255,.6) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,.6) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.hero-inner {
+  position: relative; z-index: 2;
+  max-width: 1100px; margin: 0 auto; padding: 0 5%;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+  width: 100%;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(74,140,255,.18); border: 1px solid rgba(74,140,255,.35);
+  padding: 6px 14px; border-radius: 100px;
+  font-size: .72rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+  color: #8fb8ff; margin-bottom: 20px;
+}
+.hero-tag-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.8)} }
+
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: .95; letter-spacing: 1px; color: #fff; margin-bottom: 10px;
+}
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(135deg, #4a8cff, #8fb8ff);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.hero-quote {
+  font-family: 'Lora', serif; font-style: italic;
+  font-size: 1.05rem; color: rgba(255,255,255,.55); margin-bottom: 28px; line-height: 1.6;
+}
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.hero-right { display: flex; justify-content: center; align-items: center; }
+.hero-logo-wrap {
+  width: 340px; height: 340px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.hero-logo-wrap::after {
+  content: '';
+  position: absolute; inset: -16px;
+  border: 1px solid rgba(74,140,255,.25);
+  border-radius: 50%; animation: rotate 20s linear infinite;
+}
+@keyframes rotate { to { transform: rotate(360deg); } }
+.hero-logo-img { width: 220px; height: 220px; object-fit: contain; }
+
+/* ─── SCROLL CUE ─── */
+.scroll-cue {
+  position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  color: rgba(255,255,255,.45); font-size: .7rem; letter-spacing: 2px; text-transform: uppercase;
+  animation: bob 2s ease-in-out infinite;
+  z-index: 3;
+}
+.scroll-cue svg { width: 20px; height: 20px; stroke: rgba(255,255,255,.4); fill: none; }
+@keyframes bob { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+
+/* ─── MISSION STRIP ─── */
+.mission-strip {
+  background: var(--accent);
+  padding: 20px 5%;
+  display: flex; align-items: center; justify-content: center;
+  gap: 12px;
+}
+.mission-strip p {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem; letter-spacing: 2px; color: #fff; text-align: center;
+}
+
+/* ─── WHAT WE DO ─── */
+.what { background: var(--pale); }
+.what-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 48px;
+}
+.what-card {
+  background: #fff; border-radius: 14px;
+  border: 1px solid var(--border); padding: 36px 28px;
+  transition: transform .25s, box-shadow .25s;
+}
+.what-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(45,93,184,.12); }
+.what-icon { font-size: 2rem; margin-bottom: 18px; }
+.what-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.35rem; letter-spacing: 1px; color: var(--navy); margin-bottom: 10px; }
+.what-card p { font-size: .9rem; line-height: 1.65; color: var(--muted); }
+
+/* ─── PROGRAMS PREVIEW ─── */
+.prog-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 48px; }
+.prog-card {
+  background: var(--navy); border-radius: 16px; padding: 44px 36px;
+  position: relative; overflow: hidden;
+  transition: transform .25s, box-shadow .25s;
+}
+.prog-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(13,31,69,.35); }
+.prog-card::before {
+  content: '';
+  position: absolute; top: -40px; right: -40px;
+  width: 180px; height: 180px;
+  background: rgba(74,140,255,.12);
+  border-radius: 50%;
+}
+.prog-card .sport-badge {
+  display: inline-block;
+  background: rgba(74,140,255,.2); border: 1px solid rgba(74,140,255,.4);
+  color: #8fb8ff; font-size: .7rem; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; padding: 4px 12px; border-radius: 100px; margin-bottom: 20px;
+}
+.prog-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.9rem; letter-spacing: 1px; color: #fff; margin-bottom: 12px; }
+.prog-card p { font-size: .9rem; line-height: 1.65; color: rgba(255,255,255,.6); margin-bottom: 28px; }
+.prog-card .btn-white { font-size: .82rem; padding: 10px 22px; }
+
+/* ─── CTA BAND ─── */
+.cta-band {
+  background: linear-gradient(135deg, var(--navy) 0%, #1a4fa0 100%);
+  padding: 80px 5%; text-align: center;
+}
+.cta-band h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem,4vw,3rem); color: #fff; letter-spacing: 1px; margin-bottom: 14px; }
+.cta-band p { color: rgba(255,255,255,.6); font-size: 1rem; max-width: 520px; margin: 0 auto 32px; line-height: 1.6; }
+
+/* ─── RESPONSIVE ─── */
+.hero-inner { grid-template-columns: 1fr; max-width: 700px; }
+
+@media (max-width: 900px) {
+  .what-grid { grid-template-columns: 1fr 1fr; }
+  .prog-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .hero-inner { padding-top: 110px !important; padding-bottom: 80px !important; }
+  .what-grid { grid-template-columns: 1fr; }
+  .photo-grid { grid-template-columns: 1fr 1fr !important; grid-template-rows: auto !important; }
+  .photo-grid img[style*="grid-column:span 2"] { grid-column: span 1 !important; }
+  .photo-grid img { height: 160px !important; }
+  .mission-strip p { font-size: 1rem; letter-spacing: 1.2px; }
+  .prog-card { padding: 32px 24px; }
+  .cta-band { padding: 60px 5%; }
+}
+@media (max-width: 480px) {
+  .hero-inner { padding-top: 90px !important; padding-bottom: 70px !important; }
+  .photo-grid { grid-template-columns: 1fr !important; }
+  .photo-grid img { height: 200px !important; }
+  .hero-tag { font-size: .65rem; }
+  .what-card { padding: 26px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-brand">
+    <img src="fulllogo.jpg" alt="Spark &amp; Beyond" class="nav-logo">
+    <span class="nav-name">SPARK & BEYOND</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="chapters.html">Chapters</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="sponsors.html">Sponsors</a></li>
+    <li><a href="summer.html" style="color:#f0b429!important;">Summer Camp ☀️</a></li>
+    <li><a href="contact.html" class="nav-cta">Get Involved</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="chapters.html" onclick="closeMenu()">Chapters</a>
+  <a href="about.html" onclick="closeMenu()">About</a>
+  <a href="sponsors.html" onclick="closeMenu()">Sponsors</a>
+  <a href="summer.html" onclick="closeMenu()" style="color:#f0b429;">Summer Camp ☀️</a>
+  <a href="contact.html" onclick="closeMenu()" class="mob-cta">Get Involved</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" style="background:var(--navy);position:relative;overflow:hidden;">
+  <!-- background photo -->
+  <div style="position:absolute;inset:0;z-index:0;">
+    <img src="photo3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:.28;">
+    <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(13,31,69,.95) 40%, rgba(13,31,69,.5) 100%);"></div>
+  </div>
+  <div class="hero-grid" style="position:absolute;inset:0;z-index:1;"></div>
+  <div class="hero-inner" style="position:relative;z-index:2;padding-top:160px;padding-bottom:120px;">
+    <div class="hero-left">
+      <div class="hero-tag"><span class="hero-tag-dot"></span>Youth Sports · Cedar Park Area, TX</div>
+      <h1>UNITING<br><em>COMMUNITIES</em><br>CLOSE TO HOME</h1>
+      <p class="hero-quote">"Providing opportunities where kids already live."</p>
+      <div class="hero-btns">
+        <a href="contact.html" class="btn btn-primary">Bring Us to Your Area</a>
+        <a href="chapters.html" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.4);">View Chapters</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
+
+<!-- SUMMER CAMP BANNER -->
+<a href="summer.html" style="display:block;background:linear-gradient(135deg,#1a4fa0,#4a8cff);padding:18px 5%;text-decoration:none;">
+  <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span style="font-size:1.5rem;">☀️</span>
+      <div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:2px;color:#fff;">SUMMER CAMP 2026 — NOW ENROLLING</div>
+        <div style="font-size:.8rem;color:rgba(255,255,255,.7);">June 1–5 · PAC Cedar Park · Ages 7–14</div>
+      </div>
+    </div>
+    <div style="background:#fff;color:#1a4fa0;font-size:.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:8px 20px;border-radius:6px;white-space:nowrap;">Register Now →</div>
+  </div>
+</a>
+
+<!-- MISSION STRIP -->
+<div class="mission-strip">
+  <p>🏀 &nbsp; BASKETBALL &nbsp;·&nbsp; COMMUNITY &nbsp;·&nbsp; GROWTH BEYOND THE GAME</p>
+</div>
+
+<!-- WHAT WE DO -->
+<section class="section what">
+  <div class="section-inner">
+    <div class="eyebrow reveal">What We Do</div>
+    <h2 class="h2 reveal">BUILT FOR YOUR <span>NEIGHBORHOOD</span></h2>
+    <div class="rule reveal"></div>
+    <p class="lead reveal">We partner with communities to bring high-quality youth basketball right where families live — no long commutes, no out-of-reach costs.</p>
+
+    <div class="what-grid">
+      <div class="what-card reveal reveal-d1">
+        <div class="what-icon">🏘️</div>
+        <h3>Community First</h3>
+        <p>Every program is built around the neighborhood it serves. We listen before we launch, and we grow organically with each community.</p>
+      </div>
+      <div class="what-card reveal reveal-d2">
+        <div class="what-icon">🏀</div>
+        <h3>Skills Beyond Sports</h3>
+        <p>Sports are the vehicle. Confidence, teamwork, and leadership are the destination. We build kids who succeed on and off the court.</p>
+      </div>
+      <div class="what-card reveal reveal-d3">
+        <div class="what-icon">📍</div>
+        <h3>Close to Home</h3>
+        <p>World-class youth programming right in your community — so kids can build friendships and skills without leaving their neighborhood.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Programs</div>
+    <h2 class="h2 reveal">WHAT WE <span>OFFER</span></h2>
+    <div class="rule reveal"></div>
+
+    <div class="prog-grid">
+      <div class="prog-card reveal reveal-d1">
+        <div class="sport-badge">🏀 Basketball</div>
+        <h3>Weekly Youth League</h3>
+        <p>Structured weekly sessions with certified local coaches. Skill development, teamwork, and fun — for kids of all levels.</p>
+        <a href="chapters.html" class="btn btn-white">Find a Chapter Near You</a>
+      </div>
+      <div class="prog-card reveal reveal-d2">
+        <div class="sport-badge">🌟 Coming Soon</div>
+        <h3>More Sports on the Way</h3>
+        <p>We're expanding into more sports as we grow. Interested in sponsoring a new program in your community? We'd love to talk.</p>
+        <a href="sponsors.html" class="btn btn-white">Become a Sponsor</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO GALLERY -->
+<section class="section" style="background:var(--navy);padding-top:80px;padding-bottom:80px;">
+  <div class="section-inner">
+    <div class="eyebrow reveal" style="color:#8fb8ff;">From the Court</div>
+    <h2 class="h2 reveal" style="color:#fff;">SEE IT IN <span style="color:var(--accent);">ACTION</span></h2>
+    <div class="rule reveal"></div>
+    <div class="photo-grid reveal" style="display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto;gap:12px;margin-top:32px;">
+      <img src="photo1.jpg" alt="TSL practice" style="width:100%;height:200px;object-fit:cover;border-radius:12px;">
+      <img src="photo7.jpg" alt="TSL sunset game" style="width:100%;height:200px;object-fit:cover;border-radius:12px;grid-column:span 2;">
+      <img src="photo5.jpg" alt="TSL girls shooting" style="width:100%;height:200px;object-fit:cover;border-radius:12px;">
+      <img src="photo6.jpg" alt="TSL boys drills" style="width:100%;height:200px;object-fit:cover;border-radius:12px;grid-column:span 2;">
+      <img src="photo8.jpg" alt="TSL girls session" style="width:100%;height:200px;object-fit:cover;border-radius:12px;">
+      <img src="photo3.jpg" alt="TSL action" style="width:100%;height:200px;object-fit:cover;border-radius:12px;">
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="eyebrow" style="color:#8fb8ff;">Your Community</div>
+  <h2>WANT A PROGRAM IN YOUR NEIGHBORHOOD?</h2>
+  <p>We're always looking to partner with new communities in the Cedar Park, Leander, and Round Rock area.</p>
+  <a href="contact.html" class="btn btn-white">Bring Us to Your Area</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <img src="fulllogo.jpg" alt="Spark &amp; Beyond" class="footer-logo">
+          <div>
+            <div class="footer-name">SPARK & BEYOND</div>
+            <div class="footer-tagline">Uniting communities close to home</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>Navigate</h5>
+          <a href="index.html">Home</a>
+          <a href="chapters.html">Chapters</a>
+          <a href="about.html">About</a>
+          <a href="sponsors.html">Sponsors</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h5>Programs</h5>
+          <a href="chapters.html">Basketball</a>
+          <a href="contact.html">Bring Us to Your Area</a>
+          <a href="sponsors.html">Partner With Us</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <a href="mailto:admin@sparkandbeyond.com">admin@sparkandbeyond.com</a>
+          <a href="contact.html">Send a Message</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Neer Ventures LLC · Leander, TX</span>
+      <div style="display:flex;gap:20px;">
+        <a href="https://www.instagram.com/sparkandbeyondprograms?igsh=MW12czB3cm5iejY0Mw%3D%3D&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@sparkandbeyondprograms?_r=1&_t=ZT-95GeueWPz3e" target="_blank" rel="noopener">TikTok</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', scrollY > 40);
+}, { passive: true });
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('up'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
