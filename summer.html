@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Spark & Beyond Summer Camp 2026 — June 1–5 at PAC Cedar Park. Register now."/>
+<title>Summer Camp · Spark & Beyond</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Lora:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+.page-hero {
+  background: linear-gradient(135deg, #1a3a6b 0%, #1a4fa0 60%, #4a8cff 100%);
+  padding: 140px 5% 80px; position: relative; overflow: hidden;
+}
+.page-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 80% 50%, rgba(255,200,50,.12) 0%, transparent 60%);
+}
+.page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+.page-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem,5vw,4rem); color: #fff; letter-spacing: 1px; margin-bottom: 14px; }
+.page-hero p { color: rgba(255,255,255,.7); font-size: 1rem; max-width: 560px; line-height: 1.65; }
+.hero-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.hero-badge { background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25); color: #fff; font-size: .75rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; }
+
+/* PRICE STRIP */
+.price-strip { background: #fff; border-bottom: 1px solid var(--border); padding: 18px 5%; }
+.price-strip-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; }
+.price-main { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.price-num { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--navy); letter-spacing: 1px; line-height: 1; }
+.price-slash { font-size: .88rem; color: var(--muted); }
+.price-discount { display: inline-flex; align-items: center; gap: 6px; background: #fef3c7; border: 1px solid #fcd34d; color: #92400e; font-size: .78rem; font-weight: 600; padding: 5px 12px; border-radius: 100px; }
+.fb-link { display: inline-flex; align-items: center; gap: 8px; background: #1877f2; color: #fff; font-size: .78rem; font-weight: 600; padding: 9px 18px; border-radius: 8px; transition: background .2s; white-space: nowrap; }
+.fb-link:hover { background: #0f5bbf; }
+
+/* LAYOUT */
+.camp-section { background: var(--pale); }
+.camp-layout { display: grid; grid-template-columns: 1fr 360px; gap: 40px; align-items: start; }
+
+/* TABS */
+.session-tabs-wrap { background: #fff; border-radius: 18px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 24px rgba(13,31,69,.07); }
+.tab-header { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--border); }
+.tab-btn { padding: 22px 16px; border: none; background: var(--pale); cursor: pointer; transition: all .2s; border-bottom: 3px solid transparent; display: flex; flex-direction: column; align-items: center; gap: 3px; width: 100%; }
+.tab-btn:first-child { border-right: 1px solid var(--border); }
+.tab-btn.active { background: #fff; }
+.tab-btn .tab-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 1px; color: var(--muted); transition: color .2s; }
+.tab-btn.active .tab-title { color: var(--navy); }
+.tab-btn .tab-sub { font-size: .72rem; color: var(--muted); }
+.tab-btn .tab-badge { font-size: .65rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; margin-top: 5px; }
+.tab-btn.rookies-btn .tab-badge { background: #dbeafe; color: #1e40af; }
+.tab-btn.pros-btn .tab-badge { background: #fce7f3; color: #9d174d; }
+.tab-btn.rookies-btn.active { border-bottom-color: #3b82f6; }
+.tab-btn.pros-btn.active { border-bottom-color: #ec4899; }
+
+.tab-content { display: none; padding: 30px; }
+.tab-content.active { display: block; }
+.tab-label { display: inline-block; font-size: .7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; margin-bottom: 10px; }
+.tab-label.rookies { background: #dbeafe; color: #1e40af; }
+.tab-label.pros { background: #fce7f3; color: #9d174d; }
+.tab-content h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 1px; color: var(--navy); margin-bottom: 4px; }
+.tab-content .tab-desc { font-size: .85rem; color: var(--muted); margin-bottom: 24px; line-height: 1.55; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+
+/* INFO */
+.info-card { background: #fff; border-radius: 14px; border: 1px solid var(--border); padding: 24px; margin-bottom: 16px; }
+.info-card h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 1px; color: var(--navy); margin-bottom: 14px; }
+.info-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: .85rem; }
+.info-row:last-child { border-bottom: none; padding-bottom: 0; }
+.info-row .label { color: var(--muted); font-weight: 500; }
+.info-row .value { color: var(--navy); font-weight: 600; text-align: right; max-width: 58%; }
+.highlight-card { background: linear-gradient(135deg, #f0b429, #f59e0b); border-radius: 14px; padding: 22px; margin-bottom: 16px; }
+.highlight-card h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 1px; color: #7c2d00; margin-bottom: 12px; }
+.highlight-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.highlight-list li { font-size: .83rem; color: #7c2d00; display: flex; align-items: center; gap: 8px; font-weight: 500; }
+.highlight-list li::before { content: '✓'; font-weight: 800; }
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .camp-layout { grid-template-columns: 1fr; }
+  .info-side { order: -1; }
+}
+@media (max-width: 768px) {
+  .page-hero { padding: 110px 5% 52px; }
+  .price-strip-inner { flex-direction: column; align-items: flex-start; }
+  .tab-content { padding: 20px 16px; }
+  .info-card { padding: 18px; }
+  .tab-btn { padding: 16px 10px; }
+  .tab-btn .tab-title { font-size: 1.15rem; }
+}
+@media (max-width: 480px) {
+  .page-hero { padding: 90px 4% 44px; }
+  .hero-badge { font-size: .68rem; padding: 5px 10px; }
+  input, select, textarea { font-size: 16px !important; }
+  .fb-link { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-brand">
+    <img src="fulllogo.jpg" alt="Spark &amp; Beyond" class="nav-logo">
+    <span class="nav-name">SPARK & BEYOND</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="chapters.html">Chapters</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="sponsors.html">Sponsors</a></li>
+    <li><a href="summer.html" class="active" style="color:#f0b429!important;">Summer Camp ☀️</a></li>
+    <li><a href="contact.html" class="nav-cta">Get Involved</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="chapters.html" onclick="closeMenu()">Chapters</a>
+  <a href="about.html" onclick="closeMenu()">About</a>
+  <a href="sponsors.html" onclick="closeMenu()">Sponsors</a>
+  <a href="summer.html" onclick="closeMenu()" style="color:#f0b429;">Summer Camp ☀️</a>
+  <a href="contact.html" onclick="closeMenu()" class="mob-cta">Get Involved</a>
+</div>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow" style="color:#fcd34d;">Summer 2026</div>
+    <h1>SPARK & BEYOND<br>SUMMER CAMP</h1>
+    <p>A week of elite basketball training, teamwork, and skills that last — right here in Cedar Park. Two sessions available, limited spots.</p>
+    <div class="hero-badges">
+      <div class="hero-badge">📅 June 1–5, 2026</div>
+      <div class="hero-badge">📍 PAC Cedar Park</div>
+      <div class="hero-badge">🏀 Ages 7–14</div>
+      <div class="hero-badge">💰 $260/week</div>
+      <div class="hero-badge">⏱️ 15 Hours of Play & Instruction</div>
+    </div>
+  </div>
+</div>
+
+<!-- MISSION BAND -->
+<div style="background:var(--pale);border-bottom:1px solid var(--border);padding:28px 5%;">
+  <div style="max-width:1100px;margin:0 auto;display:flex;align-items:flex-start;gap:20px;">
+    <div style="font-size:2rem;flex-shrink:0;margin-top:2px;">🤝</div>
+    <div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:1.5px;color:var(--navy);margin-bottom:6px;">MORE THAN JUST A CAMP</div>
+      <p style="font-size:.9rem;color:var(--muted);line-height:1.7;max-width:760px;">Spark & Beyond is proud to be partnered with an organization dedicated to supporting underprivileged youth athletes. This camp isn't just about basketball — it's about giving every kid, regardless of their background, the chance to grow, compete, and chase their dream. We believe every player deserves a shot.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PRICE STRIP -->
+<div class="price-strip">
+  <div class="price-strip-inner">
+    <div class="price-main">
+      <span class="price-num">$260</span>
+      <span class="price-slash">per week</span>
+      <span class="price-discount">🎉 $250 if you join our Facebook group</span>
+    </div>
+    <a href="https://www.facebook.com/share/g/1GuqSCwhta/" target="_blank" rel="noopener" class="fb-link">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      Join Facebook Group — Save $10
+    </a>
+  </div>
+</div>
+
+<!-- MAIN -->
+<section class="section camp-section">
+  <div class="section-inner">
+    <div class="camp-layout">
+
+      <!-- FORMS WITH TABS -->
+      <div class="session-tabs-wrap reveal">
+        <div class="tab-header">
+          <button class="tab-btn rookies-btn active" onclick="switchTab('rookies', this)">
+            <div class="tab-title">🏀 Rookies</div>
+            <div class="tab-sub">9:00 AM – 12:00 PM</div>
+            <div class="tab-badge">Ages 7–11</div>
+          </button>
+          <button class="tab-btn pros-btn" onclick="switchTab('pros', this)">
+            <div class="tab-title">⭐ Pros</div>
+            <div class="tab-sub">1:00 PM – 4:00 PM</div>
+            <div class="tab-badge">Ages 12–14</div>
+          </button>
+        </div>
+
+        <div class="tab-content active" id="tab-rookies">
+          <span class="tab-label rookies">Rookies Session</span>
+          <h3>REGISTER — ROOKIES</h3>
+          <p class="tab-desc">Ages 7–11 · 9:00 AM – 12:00 PM · Fundamentals, drills, and fun. Perfect for beginners and developing players who want to level up their game.</p>
+          <script type="text/javascript" src="https://form.jotform.com/jsform/261008830526149"></script>
+        </div>
+
+        <div class="tab-content" id="tab-pros">
+          <span class="tab-label pros">Pros Session</span>
+          <h3>REGISTER — PROS</h3>
+          <p class="tab-desc">Ages 12–14 · 1:00 PM – 4:00 PM · Advanced skills, competitive play, and a high-performance mindset. For players ready to take it to the next level.</p>
+          <script type="text/javascript" src="https://form.jotform.com/jsform/261043948557162"></script>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="info-side">
+        <div class="highlight-card reveal">
+          <h4>🌟 What's Included</h4>
+          <ul class="highlight-list">
+            <li>Personalized player report card</li>
+            <li>Play time videos</li>
+            <li>Exclusive goodies</li>
+            <li>Certified local coaches</li>
+            <li>Small groups, max attention</li>
+          </ul>
+        </div>
+
+        <div class="info-card reveal">
+          <h4>CAMP DETAILS</h4>
+          <div class="info-row"><span class="label">Dates</span><span class="value">June 1–5, 2026</span></div>
+          <div class="info-row"><span class="label">Location</span><span class="value">PAC Cedar Park</span></div>
+          <div class="info-row"><span class="label">Total time</span><span class="value">15 hrs play & instruction</span></div>
+          <div class="info-row"><span class="label">Price</span><span class="value">$260 ($250 w/ FB group)</span></div>
+          <div class="info-row"><span class="label">Spots per session</span><span class="value">35 max</span></div>
+          <div class="info-row"><span class="label">Coaches</span><span class="value">3 certified coaches</span></div>
+        </div>
+
+        <div class="info-card reveal">
+          <h4>SESSIONS</h4>
+          <div class="info-row"><span class="label">🏀 Rookies</span><span class="value">Ages 7–11 · 9AM–12PM</span></div>
+          <div class="info-row"><span class="label">⭐ Pros</span><span class="value">Ages 12–14 · 1PM–4PM</span></div>
+        </div>
+
+        <div class="info-card reveal" style="text-align:center;">
+          <p style="font-size:.85rem;color:var(--muted);margin-bottom:14px;">Questions about the camp?</p>
+          <a href="mailto:admin@sparkandbeyond.com" class="btn btn-primary" style="width:100%;justify-content:center;">Email Us</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <img src="fulllogo.jpg" alt="Spark &amp; Beyond" class="footer-logo">
+          <div>
+            <div class="footer-name">SPARK & BEYOND</div>
+            <div class="footer-tagline">Uniting communities close to home</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>Navigate</h5>
+          <a href="index.html">Home</a>
+          <a href="chapters.html">Chapters</a>
+          <a href="about.html">About</a>
+          <a href="sponsors.html">Sponsors</a>
+          <a href="summer.html">Summer Camp</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h5>Programs</h5>
+          <a href="chapters.html">Basketball</a>
+          <a href="summer.html">Summer Camp 2026</a>
+          <a href="contact.html">Bring Us to Your Area</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <a href="mailto:admin@sparkandbeyond.com">admin@sparkandbeyond.com</a>
+          <a href="contact.html">Send a Message</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Neer Ventures LLC · Leander, TX</span>
+      <div style="display:flex;gap:20px;">
+        <a href="https://www.instagram.com/sparkandbeyondprograms?igsh=MW12czB3cm5iejY0Mw%3D%3D&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@sparkandbeyondprograms?_r=1&_t=ZT-95GeueWPz3e" target="_blank" rel="noopener">TikTok</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', scrollY > 40);
+}, { passive: true });
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('up'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+function switchTab(session, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-' + session).classList.add('active');
+}
+</script>
+</body>
+</html>
