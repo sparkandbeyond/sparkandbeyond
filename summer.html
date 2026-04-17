@@ -190,14 +190,16 @@
           <span class="tab-label rookies">Rookies Session</span>
           <h3>REGISTER — ROOKIES</h3>
           <p class="tab-desc">Ages 7–11 · 9:00 AM – 12:00 PM · Fundamentals, drills, and fun. Perfect for beginners and developing players who want to level up their game.</p>
-          <script type="text/javascript" src="https://form.jotform.com/jsform/261008830526149"></script>
+          <div id="loading-rookies" style="text-align:center;padding:32px 0;color:var(--muted);font-size:.88rem;">Loading registration form...</div>
+          <script type="text/javascript" src="https://form.jotform.com/jsform/261008830526149" onload="document.getElementById('loading-rookies').style.display='none'"></script>
         </div>
 
         <div class="tab-content" id="tab-pros">
           <span class="tab-label pros">Pros Session</span>
           <h3>REGISTER — PROS</h3>
           <p class="tab-desc">Ages 12–14 · 1:00 PM – 4:00 PM · Advanced skills, competitive play, and a high-performance mindset. For players ready to take it to the next level.</p>
-          <script type="text/javascript" src="https://form.jotform.com/jsform/261043948557162"></script>
+          <div id="loading-pros" style="text-align:center;padding:32px 0;color:var(--muted);font-size:.88rem;">Loading registration form...</div>
+          <script type="text/javascript" src="https://form.jotform.com/jsform/261043948557162" onload="document.getElementById('loading-pros').style.display='none'"></script>
         </div>
       </div>
 
@@ -293,6 +295,13 @@
   </div>
 </footer>
 
+<!-- STICKY MOBILE REGISTER BUTTON -->
+<div id="sticky-register" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:400;padding:12px 16px;background:rgba(13,31,69,.97);backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.1);">
+  <button onclick="scrollToForm()" style="width:100%;padding:14px;background:var(--accent);color:#fff;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.5px;border:none;border-radius:10px;cursor:pointer;">
+    🏀 Register Now
+  </button>
+</div>
+
 <script>
 window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('scrolled', scrollY > 40);
@@ -309,6 +318,21 @@ function switchTab(session, btn) {
   document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById('tab-' + session).classList.add('active');
+}
+
+function scrollToForm() {
+  document.querySelector('.session-tabs-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Show sticky button only on mobile and only before form is in view
+if (window.innerWidth <= 768) {
+  document.getElementById('sticky-register').style.display = 'block';
+  const formObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      document.getElementById('sticky-register').style.display = e.isIntersecting ? 'none' : 'block';
+    });
+  }, { threshold: 0.2 });
+  formObserver.observe(document.querySelector('.session-tabs-wrap'));
 }
 </script>
 </body>
