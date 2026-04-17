@@ -318,6 +318,19 @@ function switchTab(session, btn) {
   document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById('tab-' + session).classList.add('active');
+  // Force Jotform to re-render when tab becomes visible
+  setTimeout(() => {
+    const activeTab = document.getElementById('tab-' + session);
+    const iframes = activeTab.querySelectorAll('iframe');
+    iframes.forEach(iframe => {
+      try {
+        const src = iframe.src;
+        iframe.src = '';
+        iframe.src = src;
+      } catch(e) {}
+    });
+    window.dispatchEvent(new Event('resize'));
+  }, 100);
 }
 
 function scrollToForm() {
