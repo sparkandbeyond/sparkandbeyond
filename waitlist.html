@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Join the Spark & Beyond waitlist — Drop your zip code and be the first to know when we're in your area."/>
+<title>Join the Waitlist · Spark & Beyond</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Lora:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+
+/* HERO */
+.waitlist-hero {
+  min-height: 60vh;
+  background: var(--navy);
+  position: relative; overflow: hidden;
+  display: flex; align-items: flex-end;
+  padding-top: 70px;
+}
+.waitlist-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 30%, rgba(74,140,255,.2) 0%, transparent 60%);
+}
+/* grid lines background */
+.waitlist-hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.waitlist-hero-inner {
+  max-width: 1100px; margin: 0 auto; padding: 80px 5% 80px;
+  position: relative; z-index: 2; width: 100%;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: end;
+}
+.hero-left {}
+.hero-left .eyebrow { color: #4a8cff; }
+.hero-left h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: .92; letter-spacing: 1px; color: #fff; margin-bottom: 20px;
+}
+.hero-left h1 span { color: #4a8cff; }
+.hero-left p {
+  font-size: 1rem; color: rgba(255,255,255,.6); line-height: 1.75; max-width: 420px;
+}
+.hero-right {
+  display: flex; flex-direction: column; gap: 16px; padding-bottom: 4px;
+}
+.hero-stat-card {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 14px; padding: 20px 24px;
+  display: flex; align-items: center; gap: 16px;
+  backdrop-filter: blur(8px);
+}
+.hero-stat-icon { font-size: 1.8rem; flex-shrink: 0; }
+.hero-stat-card h4 { font-weight: 700; color: #fff; font-size: .92rem; margin-bottom: 3px; }
+.hero-stat-card p { font-size: .78rem; color: rgba(255,255,255,.5); line-height: 1.4; }
+
+/* MAIN LAYOUT */
+.waitlist-body { background: var(--pale); }
+.waitlist-layout {
+  max-width: 1100px; margin: 0 auto; padding: 80px 5%;
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: start;
+}
+
+/* FORM SIDE */
+.form-side {}
+.form-container {
+  background: #fff; border-radius: 20px; border: 1px solid var(--border);
+  padding: 44px 40px; box-shadow: 0 8px 40px rgba(13,31,69,.09);
+}
+.form-container h2 {
+  font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 1px;
+  color: var(--navy); margin-bottom: 6px;
+}
+.form-container .form-desc { font-size: .88rem; color: var(--muted); margin-bottom: 28px; line-height: 1.6; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+
+/* Jotform placeholder */
+.jotform-placeholder {
+  background: var(--pale); border: 2px dashed var(--border);
+  border-radius: 12px; padding: 48px 32px; text-align: center;
+  color: var(--muted);
+}
+.jotform-placeholder .pla-icon { font-size: 2.5rem; margin-bottom: 12px; }
+.jotform-placeholder h4 { font-weight: 700; color: var(--navy); font-size: 1rem; margin-bottom: 6px; }
+.jotform-placeholder p { font-size: .82rem; line-height: 1.55; }
+.jotform-placeholder code {
+  display: inline-block; background: #fff; border: 1px solid var(--border);
+  border-radius: 6px; padding: 4px 10px; font-size: .78rem;
+  color: var(--mid); margin-top: 12px;
+}
+
+/* INFO SIDE */
+.info-side {}
+.why-card {
+  background: var(--navy); border-radius: 18px; padding: 36px 32px; margin-bottom: 20px;
+  position: relative; overflow: hidden;
+}
+.why-card::before {
+  content: '';
+  position: absolute; top: -40px; right: -40px;
+  width: 180px; height: 180px;
+  background: rgba(74,140,255,.12); border-radius: 50%;
+}
+.why-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 1px; color: #fff; margin-bottom: 16px; }
+.why-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.why-list li { display: flex; align-items: flex-start; gap: 12px; font-size: .88rem; color: rgba(255,255,255,.7); line-height: 1.5; }
+.why-list li span.check { color: #4a8cff; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+
+.how-we-use {
+  background: #fff; border-radius: 14px; border: 1px solid var(--border);
+  padding: 28px; margin-bottom: 20px;
+}
+.how-we-use h4 { font-weight: 700; color: var(--navy); font-size: .9rem; margin-bottom: 12px; }
+.how-we-use p { font-size: .85rem; color: var(--muted); line-height: 1.65; }
+
+.photo-side-wrap {
+  border-radius: 14px; overflow: hidden; margin-bottom: 20px;
+}
+.photo-side-wrap img { width: 100%; height: 200px; object-fit: cover; }
+
+.social-card {
+  background: var(--pale); border: 1px solid var(--border);
+  border-radius: 14px; padding: 22px; text-align: center;
+}
+.social-card p { font-size: .82rem; color: var(--muted); margin-bottom: 14px; }
+.social-links { display: flex; gap: 10px; justify-content: center; }
+.social-link {
+  display: flex; align-items: center; gap: 6px;
+  padding: 8px 16px; border-radius: 8px;
+  font-size: .78rem; font-weight: 600; transition: all .2s;
+}
+.social-link.ig { background: #e1306c; color: #fff; }
+.social-link.tt { background: #000; color: #fff; }
+.social-link:hover { opacity: .85; transform: translateY(-1px); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .waitlist-hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .hero-right { display: none; }
+  .waitlist-layout { grid-template-columns: 1fr; }
+  .info-side { order: -1; }
+  .form-container { padding: 28px 22px; }
+}
+@media (max-width: 768px) {
+  .waitlist-hero { min-height: auto; }
+  .waitlist-hero-inner { padding: 100px 5% 56px; }
+  input, textarea, select { font-size: 16px !important; }
+}
+@media (max-width: 480px) {
+  .waitlist-hero-inner { padding: 90px 4% 48px; }
+  .waitlist-layout { padding: 48px 4%; }
+  .form-container { padding: 22px 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-brand">
+    <img src="fulllogo.jpg" alt="Spark &amp; Beyond" class="nav-logo">
+    <span class="nav-name">SPARK & BEYOND</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="chapters.html">Chapters</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="sponsors.html">Sponsors</a></li>
+    <li><a href="waitlist.html" class="active" style="color:#f0b429!important;">Join Waitlist</a></li>
+    <li><a href="contact.html" class="nav-cta">Get Involved</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="chapters.html" onclick="closeMenu()">Chapters</a>
+  <a href="about.html" onclick="closeMenu()">About</a>
+  <a href="sponsors.html" onclick="closeMenu()">Sponsors</a>
+  <a href="waitlist.html" onclick="closeMenu()" style="color:#f0b429;">Join Waitlist ✨</a>
+  <a href="contact.html" onclick="closeMenu()" class="mob-cta">Get Involved</a>
+</div>
+
+<!-- HERO -->
+<div class="waitlist-hero">
+  <div class="waitlist-hero-inner">
+    <div class="hero-left">
+      <div class="eyebrow">Expanding Now</div>
+      <h1>IS YOUR<br>HOOD<br><span>NEXT?</span></h1>
+      <p>Structured youth sports, close to home. No long drives, no club prices. Drop your zip code and we'll let you know when we're in your area.</p>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stat-card">
+        <span class="hero-stat-icon">📍</span>
+        <div>
+          <h4>Currently in Travisso</h4>
+          <p>Our founding chapter — Leander, TX</p>
+        </div>
+      </div>
+      <div class="hero-stat-card">
+        <span class="hero-stat-icon">🔜</span>
+        <div>
+          <h4>Scouting Cedar Park & Round Rock</h4>
+          <p>New neighborhoods launching soon</p>
+        </div>
+      </div>
+      <div class="hero-stat-card">
+        <span class="hero-stat-icon">✉️</span>
+        <div>
+          <h4>You'll hear from us first</h4>
+          <p>Waitlist members get early access and first pick on spots</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="waitlist-body">
+  <div class="waitlist-layout">
+
+    <!-- FORM -->
+    <div class="form-side reveal">
+      <div class="form-container">
+        <h2>JOIN THE WAITLIST</h2>
+        <p class="form-desc">Takes 30 seconds. No commitment, no payment. Your zip code helps us prioritize which neighborhoods we launch in next — the more signups from your area, the faster we move — just your info and zip code so we can notify you when S&B is coming to your neighborhood.</p>
+
+        <!-- JOTFORM WAITLIST EMBED -->
+        <script type="text/javascript" src="https://form.jotform.com/jsform/261145407557054"></script>
+
+      </div>
+    </div>
+
+    <!-- INFO -->
+    <div class="info-side">
+      <div class="photo-side-wrap reveal">
+        <img src="photo7.jpg" alt="TSL action">
+      </div>
+
+      <div class="why-card reveal">
+        <h3>WHY JOIN THE WAITLIST?</h3>
+        <ul class="why-list">
+          <li><span class="check">✓</span>Be the first to know when S&B launches in your area</li>
+          <li><span class="check">✓</span>Early access to registration — spots fill fast</li>
+          <li><span class="check">✓</span>Your zip code helps us decide where we go next</li>
+          <li><span class="check">✓</span>Zero commitment — no payment, no obligation</li>
+          <li><span class="check">✓</span>Help bring quality youth sports to your neighborhood</li>
+        </ul>
+      </div>
+
+      <div class="how-we-use reveal">
+        <h4>How we use your info</h4>
+        <p>We collect your name, email, and zip code. That's it. We use your zip code to map demand across neighborhoods — the more signups from your area, the faster we move there. We'll only email you when we have a real update about your area.</p>
+      </div>
+
+      <div class="social-card reveal">
+        <p>Follow us for updates while you wait</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/sparkandbeyondprograms?igsh=MW12czB3cm5iejY0Mw%3D%3D&utm_source=qr" target="_blank" rel="noopener" class="social-link ig">Instagram</a>
+          <a href="https://www.tiktok.com/@sparkandbeyondprograms?_r=1&_t=ZT-95GeueWPz3e" target="_blank" rel="noopener" class="social-link tt">TikTok</a>
+          <a href="https://www.facebook.com/share/g/1CiAiVGjth/" target="_blank" rel="noopener" class="social-link" style="background:#1877f2;">Facebook Group</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <img src="fulllogo.jpg" alt="Spark &amp; Beyond" class="footer-logo">
+          <div>
+            <div class="footer-name">SPARK & BEYOND</div>
+            <div class="footer-tagline">Uniting communities close to home</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>Navigate</h5>
+          <a href="index.html">Home</a>
+          <a href="chapters.html">Chapters</a>
+          <a href="about.html">About</a>
+          <a href="sponsors.html">Sponsors</a>
+          <a href="waitlist.html">Join Waitlist</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h5>Programs</h5>
+          <a href="chapters.html">Basketball</a>
+          <a href="waitlist.html">Bring Us to Your Area</a>
+          <a href="sponsors.html">Partner With Us</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <a href="mailto:admin@sparkandbeyond.com">admin@sparkandbeyond.com</a>
+          <a href="contact.html">Send a Message</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Neer Ventures LLC · Leander, TX</span>
+      <div style="display:flex;gap:20px;">
+        <a href="https://www.instagram.com/sparkandbeyondprograms?igsh=MW12czB3cm5iejY0Mw%3D%3D&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@sparkandbeyondprograms?_r=1&_t=ZT-95GeueWPz3e" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.facebook.com/share/g/1CiAiVGjth/" target="_blank" rel="noopener">Facebook Group</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', scrollY > 40);
+}, { passive: true });
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('up'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
+<style>
+@media (max-width: 768px) {
+  .waitlist-hero-inner { padding: 90px 4% 52px; grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .waitlist-layout { padding: 52px 4%; grid-template-columns: 1fr; gap: 32px; }
+  .info-side { order: -1; }
+  .form-container { padding: 24px 18px; }
+  .why-card { padding: 24px 20px; }
+  .photo-side-wrap img { height: 160px; }
+  .social-links { flex-direction: column; }
+  .social-link { justify-content: center; }
+}
+@media (max-width: 480px) {
+  .waitlist-hero-inner { padding: 80px 4% 44px; }
+}
+</style>
