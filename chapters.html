@@ -39,7 +39,7 @@
   background: #fff; border-radius: 18px;
   border: 1px solid var(--border);
   overflow: hidden;
-  display: grid; grid-template-columns: 1fr 1fr;
+  display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr);
   box-shadow: 0 4px 24px rgba(13,31,69,.07);
   transition: transform .25s, box-shadow .25s;
 }
@@ -86,7 +86,7 @@
 /* ─── COMING SOON ─── */
 .coming-soon { margin-top: 48px; }
 .coming-soon h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 1px; color: var(--navy); margin-bottom: 24px; }
-.cs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.cs-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; }
 .cs-card {
   background: #fff; border: 1px dashed var(--border);
   border-radius: 12px; padding: 24px 20px; text-align: center;
@@ -106,33 +106,33 @@
 .own-chapter-band p { color: rgba(255,255,255,.6); max-width: 500px; margin: 0 auto 28px; font-size: .95rem; line-height: 1.65; }
 
 @media (max-width: 900px) {
-  .chapter-card { grid-template-columns: 1fr; }
+  .chapter-card { grid-template-columns: minmax(0,1fr); }
   .chapter-map { min-height: 180px; }
   .chapter-info { padding: 28px 24px; }
-  .cs-grid { grid-template-columns: 1fr 1fr; }
+  .cs-grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
 }
 @media (max-width: 768px) {
   .page-hero { padding: 110px 4% 52px; }
   .page-hero h1 { font-size: clamp(1.9rem, 8vw, 2.8rem); }
   .page-hero p { font-size: .9rem; }
-  .chapter-card { grid-template-columns: 1fr !important; }
+  .chapter-card { grid-template-columns: minmax(0,1fr) !important; }
   .chapter-map { min-height: 160px; }
   .chapter-info { padding: 22px 18px; }
   .chapter-info h2 { font-size: 1.8rem; }
   .chapter-info p { font-size: .88rem; }
   .chapter-details { gap: 8px; flex-wrap: wrap; }
   .detail-chip { font-size: .76rem; padding: 7px 11px; }
-  .photo-strip { grid-template-columns: 1fr 1fr !important; }
+  .photo-strip { grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important; }
   .photo-strip img { height: 140px !important; border-radius: 10px !important; }
-  .cs-grid { grid-template-columns: 1fr 1fr !important; }
+  .cs-grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important; }
   .own-chapter-band { padding: 52px 4%; }
   .own-chapter-band p { font-size: .88rem; }
 }
 @media (max-width: 480px) {
   .page-hero { padding: 90px 4% 44px; }
-  .photo-strip { grid-template-columns: 1fr 1fr !important; }
+  .photo-strip { grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important; }
   .photo-strip img { height: 120px !important; }
-  .cs-grid { grid-template-columns: 1fr !important; }
+  .cs-grid { grid-template-columns: minmax(0,1fr) !important; }
   .chapter-info { padding: 18px 16px; }
 }
 </style>
@@ -141,17 +141,17 @@
 
 <!-- NAV -->
 <nav id="nav">
-  <div class="nav-brand">
+  <a href="index.html" class="nav-brand">
     <img src="fulllogo.jpg" alt="Spark &amp; Beyond" class="nav-logo">
     <span class="nav-name">SPARK & BEYOND</span>
-  </div>
+  </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="chapters.html" class="active">Chapters</a></li>
+    <li><a href="why-us.html">Why Us?</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="sponsors.html">Sponsors</a></li>
-    
-    <li><a href="waitlist.html" style="color:#f0b429!important;">Join Waitlist</a></li>
+    <li><a href="registration.html">Registration</a></li>
+    <li><a href="new-chapter.html" style="color:#f0b429!important;">New Chapter</a></li>
     <li><a href="contact.html" class="nav-cta">Contact</a></li>
   </ul>
   <div class="nav-hamburger" onclick="toggleMenu()">
@@ -161,14 +161,14 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html" onclick="closeMenu()">Home</a>
   <a href="chapters.html" onclick="closeMenu()">Chapters</a>
+  <a href="why-us.html" onclick="closeMenu()">Why Us?</a>
   <a href="about.html" onclick="closeMenu()">About</a>
-  <a href="sponsors.html" onclick="closeMenu()">Sponsors</a>
-  
-  <a href="waitlist.html" onclick="closeMenu()" style="color:#f0b429;">Join Waitlist ✨</a>
+  <a href="registration.html" onclick="closeMenu()">Registration</a>
+  <a href="new-chapter.html" onclick="closeMenu()" style="color:#f0b429;">New Chapter ✨</a>
   <a href="contact.html" onclick="closeMenu()" class="mob-cta">Contact</a>
 </div>
 
-<div style="background:var(--navy);padding:14px 5%;border-bottom:1px solid rgba(255,255,255,.08);"><div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;" class="social-strip-row"><p style="font-size:.78rem;color:rgba(255,255,255,.45);">Follow us</p><div style="display:flex;gap:10px;"><a href="https://www.instagram.com/sparkandbeyondprograms?igsh=MW12czB3cm5iejY0Mw%3D%3D&utm_source=qr" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;padding:6px 10px;border-radius:7px;font-size:.72rem;font-weight:600;">IG</a><a href="https://www.tiktok.com/@sparkandbeyondprograms" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#111;color:#fff;padding:6px 10px;border-radius:7px;font-size:.72rem;font-weight:600;border:1px solid rgba(255,255,255,.15);">TikTok</a><a href="https://www.facebook.com/share/g/1CiAiVGjth/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:#1877f2;color:#fff;padding:7px 14px;border-radius:7px;font-size:.75rem;font-weight:600;">Facebook</a></div></div></div>
+<div style="background:var(--navy);padding:14px 5%;border-bottom:1px solid rgba(255,255,255,.08);"><div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;" class="social-strip-row"><p style="font-size:.78rem;color:rgba(255,255,255,.45);">Follow us</p><div style="display:flex;gap:10px;"><a href="https://www.instagram.com/sparkandbeyondprograms?igsh=MW12czB3cm5iejY0Mw%3D%3D&utm_source=qr" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;padding:10px 14px;border-radius:7px;font-size:.72rem;font-weight:600;min-height:40px;">IG</a><a href="https://www.tiktok.com/@sparkandbeyondprograms" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#111;color:#fff;padding:10px 14px;border-radius:7px;font-size:.72rem;font-weight:600;min-height:40px;border:1px solid rgba(255,255,255,.15);">TikTok</a><a href="https://www.facebook.com/share/g/1CiAiVGjth/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:#1877f2;color:#fff;padding:7px 14px;border-radius:7px;font-size:.75rem;font-weight:600;">Facebook</a></div></div></div>
 
 <!-- PAGE HERO -->
 <div class="page-hero">
@@ -183,8 +183,32 @@
 <section class="section chapters-section">
   <div class="section-inner">
 
-    <!-- TRAVISSO -->
+    <!-- CEDAR PARK / NW AUSTIN -->
     <div class="chapter-card reveal">
+      <div class="chapter-map">
+        <div class="chapter-map-pin">
+          <span class="pin-icon">📍</span>
+          <div class="pin-label">Cedar Park</div>
+          <div class="pin-sub">NW Austin, TX</div>
+        </div>
+      </div>
+      <div class="chapter-info">
+        <div class="chapter-status" style="background:#eaf1ff;color:#2d5db8;">New Chapter</div>
+        <h2>Cedar Park / NW Austin</h2>
+        <div class="location">📍 Cedar Park · NW Austin, TX</div>
+        <p>Our newest chapter, launching near the Whitestone/Parmer intersection — same real skill coaching as Travisso, now closer to Cedar Park and NW Austin families.</p>
+        <div class="chapter-details">
+          <div class="detail-chip"><strong>Sport</strong>🏀 Basketball</div>
+          <div class="detail-chip"><strong>Schedule</strong>Wednesdays, 6–7pm</div>
+          <div class="detail-chip"><strong>Ages</strong>7–11</div>
+          <div class="detail-chip"><strong>Location</strong>Austin Sports Center, Cedar Park</div>
+        </div>
+        <a href="registration.html" class="btn btn-primary">Register for This Chapter</a>
+      </div>
+    </div>
+
+    <!-- TRAVISSO -->
+    <div class="chapter-card reveal" style="margin-top:28px;">
       <div class="chapter-map">
         <div class="chapter-map-pin">
           <span class="pin-icon">📍</span>
@@ -209,7 +233,7 @@
     </div>
 
     <!-- PHOTO STRIP -->
-    <div class="photo-strip reveal" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px;margin-bottom:48px;">
+    <div class="photo-strip reveal" style="display:grid;grid-template-columns:repeat(3, minmax(0,1fr));gap:12px;margin-top:28px;margin-bottom:48px;">
       <img src="photo5.jpg" alt="TSL girls" style="width:100%;height:200px;object-fit:cover;border-radius:12px;">
       <img src="photo8.jpg" alt="TSL practice" style="width:100%;height:200px;object-fit:cover;border-radius:12px;">
       <img src="photo7.jpg" alt="TSL sunset" style="width:100%;height:200px;object-fit:cover;border-radius:12px;">
@@ -223,9 +247,9 @@
       <h3>COMING TO MORE NEIGHBORHOODS</h3>
       <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:40px;text-align:center;">
         <div style="font-size:2rem;margin-bottom:14px;">📍</div>
-        <h4 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:1px;color:var(--navy);margin-bottom:10px;">Cedar Park · Round Rock · And Beyond</h4>
+        <h4 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:1px;color:var(--navy);margin-bottom:10px;">Round Rock · And Beyond</h4>
         <p style="font-size:.92rem;color:var(--muted);line-height:1.7;max-width:480px;margin:0 auto 24px;">You're not just getting early access — you're helping build something real in your area. The more signups from your zip code, the faster we move.</p>
-        <a href="waitlist.html" class="btn btn-primary">Join the Waitlist →</a>
+        <a href="new-chapter.html" class="btn btn-primary">Request a New Chapter →</a>
       </div>
     </div>
 
@@ -237,7 +261,7 @@
   <div class="eyebrow" style="color:#8fb8ff;">Join the Community</div>
   <h2>YOUR NEIGHBORHOOD COULD BE NEXT</h2>
   <p style="color:rgba(255,255,255,.6);max-width:500px;margin:0 auto 14px;font-size:.95rem;line-height:1.65;">130+ families already play with Spark & Beyond. Be first in your area when we build there.</p>
-  <a href="waitlist.html" class="btn btn-white">Join the Waitlist — It's Free →</a>
+  <a href="new-chapter.html" class="btn btn-white">Request a New Chapter — It's Free →</a>
 </section>
 
 <!-- FOOTER -->
@@ -247,9 +271,9 @@
     <div style="background:rgba(74,140,255,.1);border:1px solid rgba(74,140,255,.2);border-radius:12px;padding:20px 24px;margin-bottom:40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;">
       <div>
         <div style="font-weight:700;color:#fff;font-size:.92rem;margin-bottom:3px;">Want S&B in your neighborhood?</div>
-        <div style="font-size:.8rem;color:rgba(255,255,255,.5);">150+ families and growing. Join the waitlist — free.</div>
+        <div style="font-size:.8rem;color:rgba(255,255,255,.5);">150+ families and growing. Request a new chapter — free.</div>
       </div>
-      <a href="waitlist.html" style="display:inline-flex;align-items:center;gap:7px;background:#4a8cff;color:#fff;padding:10px 22px;border-radius:8px;font-size:.82rem;font-weight:700;white-space:nowrap;">Join Waitlist →</a>
+      <a href="new-chapter.html" style="display:inline-flex;align-items:center;gap:7px;background:#4a8cff;color:#fff;padding:10px 22px;border-radius:8px;font-size:.82rem;font-weight:700;white-space:nowrap;">New Chapter →</a>
     </div>
 <div class="footer-top">
       <div>
@@ -257,7 +281,7 @@
           <img src="fulllogo.jpg" alt="Spark &amp; Beyond" class="footer-logo">
           <div>
             <div class="footer-name">SPARK & BEYOND</div>
-            <div class="footer-tagline">Uniting communities close to home</div>
+            <div class="footer-tagline">Real development. Not just game day.</div>
           </div>
         </div>
       </div>
@@ -266,15 +290,15 @@
           <h5>Navigate</h5>
           <a href="index.html">Home</a>
           <a href="chapters.html">Chapters</a>
+          <a href="why-us.html">Why Us?</a>
           <a href="about.html">About</a>
-          <a href="sponsors.html">Sponsors</a>
+          <a href="registration.html">Registration</a>
           <a href="contact.html">Contact</a>
         </div>
         <div class="footer-col">
           <h5>Programs</h5>
-          <a href="chapters.html">Basketball</a>
+          <a href="chapters.html">Chapters</a>
           <a href="contact.html">Bring Us to Your Area</a>
-          <a href="sponsors.html">Partner With Us</a>
         </div>
         <div class="footer-col">
           <h5>Contact</h5>

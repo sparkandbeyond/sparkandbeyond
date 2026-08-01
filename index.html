@@ -11,8 +11,8 @@
 </script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Spark & Beyond — Real youth sports built inside communities. Where kids play and families connect."/>
-<title>Spark & Beyond — Where Kids Play. Where Families Connect.</title>
+<meta name="description" content="Spark & Beyond — real development for kids, not just game day. Started in Travisso, TX and growing."/>
+<title>Spark & Beyond — Real Development. Not Just Game Day.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Lora:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
@@ -133,7 +133,7 @@
 }
 .concept-strip-inner {
   max-width: 1100px; margin: 0 auto; padding: 32px 5%;
-  display: grid; grid-template-columns: repeat(3,1fr);
+  display: grid; grid-template-columns: repeat(3, minmax(0,1fr));
   gap: 0;
 }
 .concept-item {
@@ -151,7 +151,7 @@
 ══════════════════════════════════════ */
 .how-section { background: var(--pale); }
 .how-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+  display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 64px; align-items: center;
   margin-top: 48px;
 }
 .how-steps { display: flex; flex-direction: column; gap: 0; }
@@ -174,7 +174,7 @@
   position: relative;
 }
 .how-photo-stack {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 12px;
 }
 .how-photo-stack img {
   border-radius: 14px; width: 100%;
@@ -207,7 +207,7 @@
 }
 .waitlist-inner {
   max-width: 1100px; margin: 0 auto; padding: 96px 5%;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 80px; align-items: center;
   position: relative; z-index: 2;
 }
 .waitlist-text .eyebrow { color: #4a8cff; }
@@ -269,7 +269,7 @@
    PROGRAM SECTION
 ══════════════════════════════════════ */
 .program-section { background: #fff; }
-.program-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+.program-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 24px; margin-top: 48px; }
 .program-card {
   border-radius: 20px; overflow: hidden;
   border: 1px solid var(--border);
@@ -292,6 +292,7 @@
   display: inline-flex; align-items: center; gap: 6px;
   font-size: .82rem; font-weight: 600; color: var(--mid);
   transition: gap .2s, color .2s;
+  padding: 10px 0; margin: -10px 0;
 }
 .program-card:hover .program-card-link { gap: 10px; color: var(--navy); }
 
@@ -313,18 +314,19 @@
    RESPONSIVE
 ══════════════════════════════════════ */
 @media (max-width: 900px) {
-  .how-grid { grid-template-columns: 1fr; }
-  .how-photo-stack { display: grid; grid-template-columns: 1fr 1fr; }
+  .how-started-grid { grid-template-columns: minmax(0,1fr) !important; gap: 28px !important; }
+  .how-grid { grid-template-columns: minmax(0,1fr); }
+  .how-photo-stack { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
   .how-photo-stack img:nth-child(1),
   .how-photo-stack img:nth-child(2),
   .how-photo-stack img:nth-child(3),
   .how-photo-stack img:nth-child(4) { height: 180px; margin: 0; }
-  .waitlist-inner { grid-template-columns: 1fr; gap: 40px; }
-  .program-grid { grid-template-columns: 1fr; }
-  .concept-strip-inner { grid-template-columns: 1fr; gap: 0; }
+  .waitlist-inner { grid-template-columns: minmax(0,1fr); gap: 40px; }
+  .program-grid { grid-template-columns: minmax(0,1fr); }
+  .concept-strip-inner { grid-template-columns: minmax(0,1fr); gap: 0; }
   .concept-item { border-right: none; border-bottom: 1px solid var(--border); padding: 16px 0; }
   .concept-item:last-child { border-bottom: none; }
-  .photo-mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: 180px 180px 180px; }
+  .photo-mosaic { grid-template-columns: minmax(0,1fr) minmax(0,1fr); grid-template-rows: 180px 180px 180px; }
   .photo-mosaic img:first-child { grid-row: span 1; }
 }
 @media (max-width: 768px) {
@@ -352,7 +354,7 @@
   .step-num { font-size: 2rem; width: 36px; }
   .step-body h4 { font-size: .9rem; }
   .step-body p { font-size: .83rem; }
-  .how-photo-stack { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .how-photo-stack { grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 8px; }
   .how-photo-stack img { height: 140px !important; margin: 0 !important; border-radius: 10px; }
 
   /* WAITLIST TEASER */
@@ -364,7 +366,7 @@
 
   /* PHOTO MOSAIC */
   .photo-section { padding: 56px 4%; }
-  .photo-mosaic { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .photo-mosaic { grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 8px; }
   .photo-mosaic img { height: 150px !important; border-radius: 10px; }
 
   /* PROGRAMS */
@@ -385,9 +387,9 @@
   .hero-inner { padding: 72px 4% 56px; }
   .hero h1 { font-size: clamp(2rem, 12vw, 2.8rem); }
   .hero-sub { font-size: .88rem; }
-  .photo-mosaic { grid-template-columns: 1fr; }
+  .photo-mosaic { grid-template-columns: minmax(0,1fr); }
   .photo-mosaic img { height: 220px !important; }
-  .how-photo-stack { grid-template-columns: 1fr 1fr; }
+  .how-photo-stack { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
   .how-photo-stack img { height: 130px !important; }
   .area-band h2 { font-size: clamp(1.6rem, 8vw, 2.2rem); }
   .waitlist-text h2 { font-size: clamp(1.7rem, 9vw, 2.4rem); }
@@ -398,16 +400,17 @@
 
 <!-- NAV -->
 <nav id="nav">
-  <div class="nav-brand">
+  <a href="index.html" class="nav-brand">
     <img src="fulllogo.jpg" alt="Spark &amp; Beyond" class="nav-logo">
     <span class="nav-name">SPARK & BEYOND</span>
-  </div>
+  </a>
   <ul class="nav-links">
     <li><a href="index.html" class="active">Home</a></li>
     <li><a href="chapters.html">Chapters</a></li>
+    <li><a href="why-us.html">Why Us?</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="sponsors.html">Sponsors</a></li>
-    <li><a href="waitlist.html" style="color:#f0b429!important;">Join Waitlist</a></li>
+    <li><a href="registration.html">Registration</a></li>
+    <li><a href="new-chapter.html" style="color:#f0b429!important;">New Chapter</a></li>
     <li><a href="contact.html" class="nav-cta">Contact</a></li>
   </ul>
   <div class="nav-hamburger" onclick="toggleMenu()">
@@ -417,9 +420,10 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html" onclick="closeMenu()">Home</a>
   <a href="chapters.html" onclick="closeMenu()">Chapters</a>
+  <a href="why-us.html" onclick="closeMenu()">Why Us?</a>
   <a href="about.html" onclick="closeMenu()">About</a>
-  <a href="sponsors.html" onclick="closeMenu()">Sponsors</a>
-  <a href="waitlist.html" onclick="closeMenu()" style="color:#f0b429;">Join Waitlist ✨</a>
+  <a href="registration.html" onclick="closeMenu()">Registration</a>
+  <a href="new-chapter.html" onclick="closeMenu()" style="color:#f0b429;">New Chapter ✨</a>
   <a href="contact.html" onclick="closeMenu()" class="mob-cta">Contact</a>
 </div>
 
@@ -434,11 +438,11 @@
       <span class="hero-pre-dot"></span>
       <span class="hero-pre-text">Cedar Park · Leander · Round Rock</span>
     </div>
-    <h1>WHERE KIDS PLAY. <span class="accent">WHERE FAMILIES</span> CONNECT.</h1>
-    <p class="hero-sub">Spark & Beyond builds youth sports programs inside communities — not just near them. Affordable, coached, and built around the kids who actually live there.</p>
+    <h1>REAL DEVELOPMENT. <span class="accent">NOT JUST GAME DAY.</span></h1>
+    <p class="hero-sub">Spark & Beyond is built around real skill development, not pickup games. We coach the fundamentals kids actually need — and the habits that carry over on and off the field of play — in a program that's inclusive, professional, and built to work.</p>
     <div class="hero-actions">
-      <a href="waitlist.html" class="btn-hero-primary">
-        Join the Waitlist
+      <a href="new-chapter.html" class="btn-hero-primary">
+        Request a New Chapter
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
       <a href="chapters.html" class="btn-hero-ghost">See Active Chapters</a>
@@ -460,24 +464,24 @@
 <div class="concept-strip">
   <div class="concept-strip-inner">
     <div class="concept-item">
-      <span class="concept-icon">🏘️</span>
+      <span class="concept-icon">🏆</span>
       <div>
-        <h4>Built Around Your Community</h4>
-        <p>Programs designed for the neighborhood — not imported from a corporate playbook</p>
+        <h4>Real Coaching</h4>
+        <p>Structured skill development from a real coach, every session — the same coach since we started</p>
       </div>
     </div>
     <div class="concept-item">
       <span class="concept-icon">💰</span>
       <div>
         <h4>No Club Prices</h4>
-        <p>Accessible, affordable youth sports for every family</p>
+        <p>Travel and club teams often run $2,000+ a season nationally. We're built to cost a fraction of that</p>
       </div>
     </div>
     <div class="concept-item">
-      <span class="concept-icon">🏀</span>
+      <span class="concept-icon">🏘️</span>
       <div>
-        <h4>Real Coaching</h4>
-        <p>Consistent local coaches who develop your kid over time — not a different face every week</p>
+        <h4>Built Around Your Community</h4>
+        <p>Programs designed for the neighborhood — not imported from a corporate playbook</p>
       </div>
     </div>
   </div>
@@ -503,6 +507,17 @@
     </div>
   </div>
 </div>
+
+<!-- WHY US TEASER -->
+<section class="section" style="background:#fff;text-align:center;">
+  <div class="section-inner" style="max-width:700px;">
+    <div class="eyebrow reveal">Why Spark & Beyond</div>
+    <h2 class="h2 reveal">REAL DEVELOPMENT. <span>NOT JUST GAME DAY.</span></h2>
+    <div class="rule reveal" style="margin-left:auto;margin-right:auto;"></div>
+    <p class="lead reveal" style="max-width:100%;margin:0 auto 28px;">Spark & Beyond is built around real skill development, not pickup games. We coach the fundamentals kids actually need — and the habits that carry over on and off the field of play.</p>
+    <a href="why-us.html" class="btn btn-outline reveal">See Why We're Different →</a>
+  </div>
+</section>
 
 <!-- HOW IT WORKS -->
 <section class="section how-section">
@@ -530,7 +545,7 @@
           <div class="step-num">03</div>
           <div class="step-body">
             <h4>Kids show up, week after week</h4>
-            <p>Weekly sessions with consistent coaches, structured skill development, and real games. The same kids, the same coach, the same community — every time.</p>
+            <p>Weekly sessions with consistent coaching and structured skill development. Consistent coaching so far, real skill progression, and a program that only exists because your neighborhood asked for it.</p>
           </div>
         </div>
         <div class="how-step">
@@ -553,13 +568,43 @@
   </div>
 </section>
 
+<!-- HOW IT STARTED -->
+<section class="section" style="background:#fff;">
+  <div class="section-inner">
+    <div class="eyebrow reveal">How It Started</div>
+    <h2 class="h2 reveal">BUILT FROM SCRATCH. <span>ONE NEIGHBORHOOD AT A TIME.</span></h2>
+    <div class="rule reveal"></div>
+    <div class="reveal how-started-grid" style="display:grid;grid-template-columns:repeat(3, minmax(0,1fr));gap:32px;margin-top:44px;">
+      <div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:2.4rem;line-height:1;color:var(--border);margin-bottom:10px;">01</div>
+        <div style="font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;">The Problem</div>
+        <h4 style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.5px;color:var(--navy);margin-bottom:8px;">A neighborhood full of kids with nowhere to play together.</h4>
+        <p style="font-size:.87rem;line-height:1.65;color:var(--muted);">Travisso, TX had great courts, great families — and no program to bring them together. Parents were driving across town. Kids barely knew each other. That didn't sit right.</p>
+      </div>
+      <div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:2.4rem;line-height:1;color:var(--border);margin-bottom:10px;">02</div>
+        <div style="font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;">The Build</div>
+        <h4 style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.5px;color:var(--navy);margin-bottom:8px;">Start with a WhatsApp group. Build from there.</h4>
+        <p style="font-size:.87rem;line-height:1.65;color:var(--muted);">No corporate playbook. No franchise fee. Just a simple idea: find local coaches, use the community courts that already exist, keep it affordable. Travisso Sports League launched with a handful of families and a group chat. It now has 130+ families and runs every week.</p>
+      </div>
+      <div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:2.4rem;line-height:1;color:var(--border);margin-bottom:10px;">03</div>
+        <div style="font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;">What's Next</div>
+        <h4 style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.5px;color:var(--navy);margin-bottom:8px;">TSL proved the model. Spark & Beyond takes it further.</h4>
+        <p style="font-size:.87rem;line-height:1.65;color:var(--muted);">What worked in Travisso works anywhere. S&B is the engine for taking that same approach — real coaching, real skill-building, no club prices — to every neighborhood ready for it.</p>
+      </div>
+    </div>
+    <a href="about.html" class="program-card-link reveal" style="margin-top:36px;font-size:.9rem;">Read the full story →</a>
+  </div>
+</section>
+
 <!-- WAITLIST TEASER -->
 <section class="waitlist-teaser">
   <div class="waitlist-inner">
     <div class="waitlist-text reveal">
       <div class="eyebrow">Now Expanding</div>
       <h2>YOUR KIDS DESERVE<br>A <em>REAL SPORTS</em> COMMUNITY.</h2>
-      <p>Not a drop-off program. Not a faceless league. Parents across Cedar Park, Leander, and Round Rock are already on the waitlist. The more signups from your zip code, the faster we build there.</p>
+      <p>Not a drop-off program. Not a faceless league. Parents across Cedar Park, Leander, and Round Rock have already requested a chapter. The more signups from your zip code, the faster we build there.</p>
       <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px;">
         <div style="display:flex;align-items:center;gap:10px;font-size:.85rem;color:rgba(255,255,255,.65);">
           <span style="color:#4a8cff;font-weight:700;">✓</span> Takes 30 seconds
@@ -571,13 +616,13 @@
           <span style="color:#4a8cff;font-weight:700;">✓</span> First access when your area launches
         </div>
       </div>
-      <a href="waitlist.html" class="btn btn-white" style="display:inline-flex;align-items:center;gap:8px;font-size:.95rem;padding:15px 32px;">
-        Join the Waitlist — It's Free
+      <a href="new-chapter.html" class="btn btn-white" style="display:inline-flex;align-items:center;gap:8px;font-size:.95rem;padding:15px 32px;">
+        Request a New Chapter — It's Free
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
     <div class="waitlist-card reveal reveal-d1">
-      <h3>WHY JOIN THE WAITLIST?</h3>
+      <h3>WHY REQUEST A NEW CHAPTER?</h3>
       <p>You're not just getting early access. You're helping build something real in your neighborhood.</p>
       <ul class="waitlist-perks">
         <li>First pick when your area launches</li>
@@ -585,7 +630,7 @@
         <li>Be part of something being built from scratch</li>
         <li>No commitment — just your name and zip</li>
       </ul>
-      <a href="waitlist.html" class="btn-waitlist">Drop Your Zip Code →</a>
+      <a href="new-chapter.html" class="btn-waitlist">Drop Your Zip Code →</a>
     </div>
   </div>
 </section>
@@ -593,8 +638,8 @@
 <!-- PHOTO MOSAIC -->
 <section class="photo-section">
   <div class="photo-section-inner">
-    <div class="eyebrow reveal" style="color:#4a8cff;">From the Court</div>
-    <h2 class="h2 reveal" style="color:#fff;">REAL KIDS. <span style="color:#4a8cff;">REAL COURTS.</span></h2>
+    <div class="eyebrow reveal" style="color:#4a8cff;">From Our Chapters</div>
+    <h2 class="h2 reveal" style="color:#fff;">REAL KIDS. <span style="color:#4a8cff;">REAL COMMUNITY.</span></h2>
     <div class="photo-mosaic reveal">
       <img src="photo1.jpg" alt="TSL practice">
       <img src="photo2.jpg" alt="TSL game">
@@ -617,9 +662,9 @@
           <img src="photo8.jpg" alt="Weekly League">
         </div>
         <div class="program-card-body">
-          <span class="program-card-tag">🏀 Active</span>
-          <h3>Weekly Youth League</h3>
-          <p>Structured weekly sessions with certified local coaches. Skill development, teamwork, and real games — right in your neighborhood.</p>
+          <span class="program-card-tag">✅ Active</span>
+          <h3>Weekly Skills Program</h3>
+          <p>Structured weekly sessions, real coaching, and skill-building that actually shows up when it counts.</p>
           <a href="chapters.html" class="program-card-link">Find a chapter near you →</a>
         </div>
       </div>
@@ -630,8 +675,8 @@
         <div class="program-card-body">
           <span class="program-card-tag">🌱 Coming Soon</span>
           <h3>More Sports on the Way</h3>
-          <p>We're expanding into new sports and new neighborhoods. Want to be first in your area? Join the waitlist and help us build toward you.</p>
-          <a href="waitlist.html" class="program-card-link">Join the waitlist →</a>
+          <p>We're expanding into new sports and new neighborhoods. Want to be first in your area? Request a New Chapter and help us build toward you.</p>
+          <a href="new-chapter.html" class="program-card-link">Request a New Chapter →</a>
         </div>
       </div>
     </div>
@@ -643,14 +688,14 @@
   <div class="area-band-inner">
     <div class="eyebrow reveal">Don't Miss Out</div>
     <h2 class="reveal">YOUR KIDS DESERVE MORE<br>THAN A DROP-OFF PROGRAM</h2>
-    <p class="reveal">Real coaching. Real community. Affordable for every family. Join the waitlist now — it takes 30 seconds and it's completely free.</p>
+    <p class="reveal">Real coaching. Real community. Affordable for every family. Request a New Chapter now — it takes 30 seconds and it's completely free.</p>
     <div class="area-tags reveal">
       <span class="area-tag">📍 Travisso · Leander</span>
       <span class="area-tag">🔜 Cedar Park</span>
       <span class="area-tag">🔜 Round Rock</span>
       <span class="area-tag">🔜 Your Neighborhood?</span>
     </div>
-    <a href="waitlist.html" class="btn btn-primary reveal" style="font-size:.95rem;padding:15px 36px;">Join the Waitlist — It's Free →</a>
+    <a href="new-chapter.html" class="btn btn-primary reveal" style="font-size:.95rem;padding:15px 36px;">Request a New Chapter — It's Free →</a>
   </div>
 </section>
 
@@ -661,9 +706,9 @@
     <div style="background:rgba(74,140,255,.1);border:1px solid rgba(74,140,255,.2);border-radius:12px;padding:20px 24px;margin-bottom:40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;">
       <div>
         <div style="font-weight:700;color:#fff;font-size:.92rem;margin-bottom:3px;">Want S&B in your neighborhood?</div>
-        <div style="font-size:.8rem;color:rgba(255,255,255,.5);">150+ families and growing. Join the waitlist — free.</div>
+        <div style="font-size:.8rem;color:rgba(255,255,255,.5);">150+ families and growing. Request a new chapter — free.</div>
       </div>
-      <a href="waitlist.html" style="display:inline-flex;align-items:center;gap:7px;background:#4a8cff;color:#fff;padding:10px 22px;border-radius:8px;font-size:.82rem;font-weight:700;white-space:nowrap;">Join Waitlist →</a>
+      <a href="new-chapter.html" style="display:inline-flex;align-items:center;gap:7px;background:#4a8cff;color:#fff;padding:10px 22px;border-radius:8px;font-size:.82rem;font-weight:700;white-space:nowrap;">New Chapter →</a>
     </div>
 <div class="footer-top">
       <div>
@@ -671,7 +716,7 @@
           <img src="fulllogo.jpg" alt="Spark &amp; Beyond" class="footer-logo">
           <div>
             <div class="footer-name">SPARK & BEYOND</div>
-            <div class="footer-tagline">Uniting communities close to home</div>
+            <div class="footer-tagline">Real development. Not just game day.</div>
           </div>
         </div>
       </div>
@@ -680,16 +725,16 @@
           <h5>Navigate</h5>
           <a href="index.html">Home</a>
           <a href="chapters.html">Chapters</a>
+          <a href="why-us.html">Why Us?</a>
           <a href="about.html">About</a>
-          <a href="sponsors.html">Sponsors</a>
-          <a href="waitlist.html">Join Waitlist</a>
+          <a href="registration.html">Registration</a>
+          <a href="new-chapter.html">New Chapter</a>
           <a href="contact.html">Contact</a>
         </div>
         <div class="footer-col">
           <h5>Programs</h5>
-          <a href="chapters.html">Basketball</a>
-          <a href="waitlist.html">Bring Us to Your Area</a>
-          <a href="sponsors.html">Partner With Us</a>
+          <a href="chapters.html">Chapters</a>
+          <a href="new-chapter.html">Bring Us to Your Area</a>
         </div>
         <div class="footer-col">
           <h5>Contact</h5>
@@ -722,8 +767,8 @@ document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 <!-- STICKY MOBILE WAITLIST -->
 <div id="sticky-wl" style="display:none;position:fixed;bottom:20px;right:16px;z-index:400;">
-  <a href="waitlist.html" style="display:inline-flex;align-items:center;gap:7px;background:#4a8cff;color:#fff;padding:11px 20px;border-radius:100px;font-family:DM Sans,sans-serif;font-size:.82rem;font-weight:700;text-decoration:none;box-shadow:0 4px 20px rgba(74,140,255,.5);">
-    ✨ Join Waitlist
+  <a href="new-chapter.html" style="display:inline-flex;align-items:center;justify-content:center;gap:7px;background:#4a8cff;color:#fff;padding:13px 22px;min-height:44px;border-radius:100px;font-family:DM Sans,sans-serif;font-size:.82rem;font-weight:700;text-decoration:none;box-shadow:0 4px 20px rgba(74,140,255,.5);">
+    ✨ New Chapter
   </a>
 </div>
 <script>

@@ -50,9 +50,10 @@
 
 .reason-tabs { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
 .reason-tab {
-  padding: 8px 16px; border-radius: 100px; border: 1px solid var(--border);
+  padding: 12px 18px; border-radius: 100px; border: 1px solid var(--border);
   font-size: .78rem; font-weight: 600; letter-spacing: .5px; cursor: pointer;
   background: #fff; color: var(--muted); transition: all .2s;
+  min-height: 44px; display: inline-flex; align-items: center;
 }
 .reason-tab.active,
 .reason-tab:hover { background: var(--mid); color: #fff; border-color: var(--mid); }
@@ -66,7 +67,7 @@
 .form-card .form-sub { font-size: .88rem; color: var(--muted); margin-bottom: 28px; }
 
 .form-group { margin-bottom: 20px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-row { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 16px; }
 label { display: block; font-size: .78rem; font-weight: 600; letter-spacing: .8px; text-transform: uppercase; color: var(--text); margin-bottom: 7px; }
 input, textarea, select {
   width: 100%; padding: 12px 16px;
@@ -101,8 +102,8 @@ select { appearance: none; cursor: pointer; }
 }
 
 @media (max-width: 900px) {
-  .contact-layout { grid-template-columns: 1fr; }
-  .form-row { grid-template-columns: 1fr; }
+  .contact-layout { grid-template-columns: minmax(0,1fr); }
+  .form-row { grid-template-columns: minmax(0,1fr); }
   .form-card { padding: 28px 22px; }
 }
 @media (max-width: 768px) {
@@ -119,9 +120,9 @@ select { appearance: none; cursor: pointer; }
 @media (max-width: 480px) { .page-hero { padding: 90px 4% 44px; } }
 
 @media (max-width: 768px) {
-  .contact-layout { grid-template-columns: 1fr !important; gap: 28px; }
+  .contact-layout { grid-template-columns: minmax(0,1fr) !important; gap: 28px; }
   .form-card { padding: 24px 18px; }
-  .form-row { grid-template-columns: 1fr !important; gap: 0; }
+  .form-row { grid-template-columns: minmax(0,1fr) !important; gap: 0; }
   .reason-tabs { gap: 6px; }
   .reason-tab { padding: 6px 11px; font-size: .72rem; }
   .info-card { padding: 18px; gap: 12px; }
@@ -132,15 +133,17 @@ select { appearance: none; cursor: pointer; }
 
 <!-- NAV -->
 <nav id="nav">
-  <div class="nav-brand">
+  <a href="index.html" class="nav-brand">
     <img src="fulllogo.jpg" alt="Spark &amp; Beyond" class="nav-logo">
     <span class="nav-name">SPARK & BEYOND</span>
-  </div>
+  </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="chapters.html">Chapters</a></li>
+    <li><a href="why-us.html">Why Us?</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="sponsors.html">Sponsors</a></li>
+    <li><a href="registration.html">Registration</a></li>
+    <li><a href="new-chapter.html" style="color:#f0b429!important;">New Chapter</a></li>
     <li><a href="contact.html" class="active nav-cta">Get Involved</a></li>
   </ul>
   <div class="nav-hamburger" onclick="toggleMenu()">
@@ -150,14 +153,14 @@ select { appearance: none; cursor: pointer; }
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html" onclick="closeMenu()">Home</a>
   <a href="chapters.html" onclick="closeMenu()">Chapters</a>
+  <a href="why-us.html" onclick="closeMenu()">Why Us?</a>
   <a href="about.html" onclick="closeMenu()">About</a>
-  <a href="sponsors.html" onclick="closeMenu()">Sponsors</a>
-  
-  <a href="waitlist.html" onclick="closeMenu()" style="color:#f0b429;">Join Waitlist ✨</a>
+  <a href="registration.html" onclick="closeMenu()">Registration</a>
+  <a href="new-chapter.html" onclick="closeMenu()" style="color:#f0b429;">New Chapter ✨</a>
   <a href="contact.html" onclick="closeMenu()" class="mob-cta">Contact</a>
 </div>
 
-<div style="background:var(--navy);padding:14px 5%;border-bottom:1px solid rgba(255,255,255,.08);"><div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;" class="social-strip-row"><p style="font-size:.78rem;color:rgba(255,255,255,.45);">Follow us</p><div style="display:flex;gap:10px;"><a href="https://www.instagram.com/sparkandbeyondprograms?igsh=MW12czB3cm5iejY0Mw%3D%3D&utm_source=qr" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;padding:6px 10px;border-radius:7px;font-size:.72rem;font-weight:600;">IG</a><a href="https://www.tiktok.com/@sparkandbeyondprograms" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#111;color:#fff;padding:6px 10px;border-radius:7px;font-size:.72rem;font-weight:600;border:1px solid rgba(255,255,255,.15);">TikTok</a><a href="https://www.facebook.com/share/g/1CiAiVGjth/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:#1877f2;color:#fff;padding:7px 14px;border-radius:7px;font-size:.75rem;font-weight:600;">Facebook</a></div></div></div>
+<div style="background:var(--navy);padding:14px 5%;border-bottom:1px solid rgba(255,255,255,.08);"><div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;" class="social-strip-row"><p style="font-size:.78rem;color:rgba(255,255,255,.45);">Follow us</p><div style="display:flex;gap:10px;"><a href="https://www.instagram.com/sparkandbeyondprograms?igsh=MW12czB3cm5iejY0Mw%3D%3D&utm_source=qr" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;padding:10px 14px;border-radius:7px;font-size:.72rem;font-weight:600;min-height:40px;">IG</a><a href="https://www.tiktok.com/@sparkandbeyondprograms" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#111;color:#fff;padding:10px 14px;border-radius:7px;font-size:.72rem;font-weight:600;min-height:40px;border:1px solid rgba(255,255,255,.15);">TikTok</a><a href="https://www.facebook.com/share/g/1CiAiVGjth/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:#1877f2;color:#fff;padding:7px 14px;border-radius:7px;font-size:.75rem;font-weight:600;">Facebook</a></div></div></div>
 
 <!-- PAGE HERO -->
 <div class="page-hero">
@@ -210,7 +213,7 @@ select { appearance: none; cursor: pointer; }
         <div class="form-card">
           <h3>SEND A MESSAGE</h3>
           <div style="background:var(--pale);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:.85rem;color:var(--muted);">
-            👋 Looking to join a program? <a href="waitlist.html" style="color:var(--accent);font-weight:600;">Join the waitlist here →</a>
+            👋 Looking to get involved? <a href="new-chapter.html" style="color:var(--accent);font-weight:600;">Request a New Chapter here →</a>
           </div>
 
           <!-- REASON TABS -->
@@ -269,9 +272,9 @@ select { appearance: none; cursor: pointer; }
     <div style="background:rgba(74,140,255,.1);border:1px solid rgba(74,140,255,.2);border-radius:12px;padding:20px 24px;margin-bottom:40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;">
       <div>
         <div style="font-weight:700;color:#fff;font-size:.92rem;margin-bottom:3px;">Want S&B in your neighborhood?</div>
-        <div style="font-size:.8rem;color:rgba(255,255,255,.5);">150+ families and growing. Join the waitlist — free.</div>
+        <div style="font-size:.8rem;color:rgba(255,255,255,.5);">150+ families and growing. Request a new chapter — free.</div>
       </div>
-      <a href="waitlist.html" style="display:inline-flex;align-items:center;gap:7px;background:#4a8cff;color:#fff;padding:10px 22px;border-radius:8px;font-size:.82rem;font-weight:700;white-space:nowrap;">Join Waitlist →</a>
+      <a href="new-chapter.html" style="display:inline-flex;align-items:center;gap:7px;background:#4a8cff;color:#fff;padding:10px 22px;border-radius:8px;font-size:.82rem;font-weight:700;white-space:nowrap;">New Chapter →</a>
     </div>
 <div class="footer-top">
       <div>
@@ -279,7 +282,7 @@ select { appearance: none; cursor: pointer; }
           <img src="fulllogo.jpg" alt="Spark &amp; Beyond" class="footer-logo">
           <div>
             <div class="footer-name">SPARK & BEYOND</div>
-            <div class="footer-tagline">Uniting communities close to home</div>
+            <div class="footer-tagline">Real development. Not just game day.</div>
           </div>
         </div>
       </div>
@@ -288,15 +291,15 @@ select { appearance: none; cursor: pointer; }
           <h5>Navigate</h5>
           <a href="index.html">Home</a>
           <a href="chapters.html">Chapters</a>
+          <a href="why-us.html">Why Us?</a>
           <a href="about.html">About</a>
-          <a href="sponsors.html">Sponsors</a>
+          <a href="registration.html">Registration</a>
           <a href="contact.html">Contact</a>
         </div>
         <div class="footer-col">
           <h5>Programs</h5>
-          <a href="chapters.html">Basketball</a>
+          <a href="chapters.html">Chapters</a>
           <a href="contact.html">Bring Us to Your Area</a>
-          <a href="sponsors.html">Partner With Us</a>
         </div>
         <div class="footer-col">
           <h5>Contact</h5>
